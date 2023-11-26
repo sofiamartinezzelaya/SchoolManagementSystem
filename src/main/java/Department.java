@@ -1,8 +1,3 @@
-public class Department
-
-{
-
+public class Department {
     private String department;
-
 }
-
