@@ -16,4 +16,7 @@ public class Teacher {
     private String TeacherId;
     private static int nextId = 1;
 
+    public Teacher(String fname, String lname, Department department) {
+
+    }
 }
