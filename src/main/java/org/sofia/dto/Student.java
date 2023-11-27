@@ -16,6 +16,9 @@ public class Student {
     private Course[] courses;
     private int courseNum;
     private Department department;
+
+    private static final int MAX_COURSE_NUM = 5;
     private static int nextId = 1;
+
 
 }

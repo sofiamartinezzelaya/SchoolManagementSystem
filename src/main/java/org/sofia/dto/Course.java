@@ -10,6 +10,8 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Course {
+    private static final int MAX_STUDENT_NUM = 5;
+
     private double credit;
     private String id;
     private Student[] students;
@@ -17,5 +19,4 @@ public class Course {
     private int studentNum;
     private Teacher teacher;
     private String courseName;
-
 }
