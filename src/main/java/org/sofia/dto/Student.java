@@ -20,5 +20,10 @@ public class Student {
     private static final int MAX_COURSE_NUM = 5;
     private static int nextId = 1;
 
+    public Student(String fname, String lname, Department department) {
+
+    }
+
+
 
 }

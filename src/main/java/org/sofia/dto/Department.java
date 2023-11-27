@@ -10,8 +10,12 @@ import lombok.ToString;
 @Setter
 public class Department {
     private static int nextId = 1;
-    private String departmentid;
+    private String departmentId;
     private String departmentName;
+
+    public Department(String departmentId) {
+
+    }
 
     /**
      * intializes all the fields
@@ -23,5 +27,4 @@ public class Department {
     public String toString(String departmentidId, int nextId, String departmentName) {
         return null; //filler for empty method, will be replaced during completion
     }
-
 }
