@@ -12,10 +12,23 @@ public class SchoolManagementSystem {
     private static final int MAX_STUDENT_NUM = 200;
     private static final int MAX_TEACHER_NUM = 20;
     private static final int MAX_COURSE_NUM = 30;
+
     private Student[] students;
     private Teacher[] teachers;
+    private int departmentNum = 0;
     private Department[] departments;
     private Course[] course;
+
+    /**
+     * adds a new department if there are less than 5 existing departments
+     * else it will fail to add a department
+     * @param department Department
+     */
+    public void addDepartment(Department department) {
+
+    }
+
+
 
 
 
