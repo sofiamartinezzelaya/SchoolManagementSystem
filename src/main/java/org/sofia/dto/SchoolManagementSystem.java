@@ -28,15 +28,15 @@ public class SchoolManagementSystem {
 
     }
 
-    public void addStudent(String id, String fname, String lname) {
+    public void addStudent(String studentId, String fname, String lname) {
 
     }
 
-    public void addTeacher(String id, String fname, String lname) {
+    public void addTeacher(String teacherId, String fname, String lname) {
 
     }
 
-    public void addCourse(String id, double credit, String courseName) {
+    public void addCourse(String courseId, double credit, String courseName) {
 
     }
 
@@ -55,6 +55,31 @@ public class SchoolManagementSystem {
     public void printCourse() {
 
     }
+
+    public Department findDepartment(String departmentId) {
+        return null;//filler for empty method, will be replaced during completion
+    }
+
+    public Teacher findTeacher(String teacherId) {
+        return null;//filler for empty method, will be replaced during completion
+    }
+
+    public Course findCourse(String courseId) {
+        return null;//filler for empty method, will be replaced during completion
+    }
+
+    public Student findStudent(String studentId) {
+        return null;//filler for empty method, will be replaced during completion
+    }
+
+    public void modifyCourseTeacher(String teacherId, String courseId) {
+
+    }
+
+    public void registerCourse(String studentId, String courseId) {
+
+    }
+
 
 
 

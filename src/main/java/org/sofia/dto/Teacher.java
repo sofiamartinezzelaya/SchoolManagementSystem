@@ -13,7 +13,7 @@ public class Teacher {
     private String fname;
     private String lname;
     private Department department;
-    private String id;
+    private String TeacherId;
     private static int nextId = 1;
 
 }
