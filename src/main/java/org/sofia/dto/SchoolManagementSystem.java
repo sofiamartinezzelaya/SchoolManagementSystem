@@ -95,26 +95,66 @@ public class SchoolManagementSystem {
 
     }
 
+    /**
+     * finds a department in the departments based on the department id
+     * if the department id does not match with anything in the departments, will return a null
+     * @param departmentId Strind of departmentId
+     * @return the Department department that was being searched
+     */
     public Department findDepartment(String departmentId) {
         return null;//filler for empty method, will be replaced during completion
     }
 
+    /**
+     * finds a teacher in the teachers based on the teacher id
+     * if the teacher id does not match with anything in the teachers, will return a null
+     * @param teacherId String of teacherId
+     * @return the Teacher teacher that was being searched
+     */
     public Teacher findTeacher(String teacherId) {
         return null;//filler for empty method, will be replaced during completion
     }
 
+    /**
+     * finds a course in the course based on the course id
+     * if the teacher id does not match with anything in the courses, will return a null
+     * @param courseId String of courseId
+     * @return the Course course that was being searched
+     */
     public Course findCourse(String courseId) {
         return null;//filler for empty method, will be replaced during completion
     }
 
+    /**
+     * finds a student in the students based on the student id
+     * if the studentid does not match with anything in the students, will return a null
+     * @param studentId String of studentId
+     * @return the Student student that was being searched
+     */
     public Student findStudent(String studentId) {
         return null;//filler for empty method, will be replaced during completion
     }
 
+    /**
+     * assigns a teached to a specific course based on parameters
+     * if no teacher or course is found, a message will be printed
+     * @param teacherId String of teacherId
+     * @param courseId String of courseId
+     */
     public void modifyCourseTeacher(String teacherId, String courseId) {
 
     }
 
+    /**
+     * registers a course for a student based on parameters
+     * if the parametes does not match with anything, prints a message
+     * if the student has registed for the max num of courses, prints a message
+     * if the course is registered by max num of students, prints a message
+     * else it will add te course to the students registered course arrat and add the student to the reistered students
+             array
+     * @param studentId String of studentId
+     * @param courseId string of courseId
+     */
     public void registerCourse(String studentId, String courseId) {
 
     }
