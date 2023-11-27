@@ -28,6 +28,34 @@ public class SchoolManagementSystem {
 
     }
 
+    public void addStudent(String id, String fname, String lname) {
+
+    }
+
+    public void addTeacher(String id, String fname, String lname) {
+
+    }
+
+    public void addCourse(String id, double credit, String courseName) {
+
+    }
+
+    public void printDepartment() {
+
+    }
+
+    public void printStudent() {
+
+    }
+
+    public void printTeacher() {
+
+    }
+
+    public void printCourse() {
+
+    }
+
 
 
 
