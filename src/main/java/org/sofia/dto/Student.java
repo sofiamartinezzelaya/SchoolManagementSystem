@@ -1,9 +1,12 @@
 package org.sofia.dto;
 
-public class Teacher {
+public class Student {
     private String fname;
     private String lname;
-    private Department department;
     private String id;
+    private Course[] courses;
+    private int courseNum;
+    private Department department;
     private static int nextId = 1;
+
 }
