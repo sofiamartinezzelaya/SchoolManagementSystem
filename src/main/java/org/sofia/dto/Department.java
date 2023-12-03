@@ -3,7 +3,6 @@ package org.sofia.dto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @EqualsAndHashCode
 @Getter
@@ -13,18 +12,12 @@ public class Department {
     private String departmentId;
     private String departmentName;
 
-    public Department(String departmentId) {
-
+    public Department(String departmentName) {
+        this.departmentId = String.format("D%03d", nextId++);
+        this.departmentName = departmentName;
     }
 
-    /**
-     * intializes all the fields
-     * @param departmentidId String of department
-     * @param nextId int that increases the id of the department when a new department is added
-     * @param departmentName String of the department name
-     * @return the id and department name
-     */
-    public String toString(String departmentidId, int nextId, String departmentName) {
-        return null; //filler for empty method, will be replaced during completion
+    public String toString() {
+        return departmentId + departmentName;
     }
 }

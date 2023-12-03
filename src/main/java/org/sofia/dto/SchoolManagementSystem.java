@@ -19,13 +19,21 @@ public class SchoolManagementSystem {
     private Department[] departments;
     private Course[] course;
 
+    public SchoolManagementSystem() {
+        this.departments = new Department[MAX_DEPART_NUM];
+        this.students = new Student[MAX_STUDENT_NUM];
+    }
+
     /**
      * adds a new department if there are less than 5 existing departments
      * else it will fail to add a department
      * @param department Department
      */
     public void addDepartment(Department department) {
-
+        if (departmentNum < MAX_DEPART_NUM) {
+            departments[departmentNum] = department;
+        }
+        System.out.println("Max departments reached, add a new department failed");
     }
 
     /**
@@ -36,6 +44,7 @@ public class SchoolManagementSystem {
      * @param lname String student's last name
      */
     public void addStudent(String studentId, String fname, String lname) {
+        //call findDepartment
 
     }
 
@@ -64,8 +73,8 @@ public class SchoolManagementSystem {
     /**
      * Displays all departments in the system that is not a null
      */
-    public void printDepartment() {
-
+    public void printDepartment(Department department) {
+        for ()
     }
 
     /**

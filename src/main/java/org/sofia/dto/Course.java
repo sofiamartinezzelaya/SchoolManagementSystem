@@ -16,11 +16,14 @@ public class Course {
     private String courseId;
     private Student[] students;
     private Department department;
-    private int studentNum;
+    private int studentNum = 0;
     private Teacher teacher;
     private String courseName;
 
-    public Course(String courseId, double credit, Department department) {
-
+    public Course(double credit, String courseId, Department department) {
+        this.credit = credit;
+        this.courseId = courseId;
+        this.students = students;
+        this.department = department;
     }
 }
