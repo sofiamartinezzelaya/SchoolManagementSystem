@@ -22,16 +22,20 @@ public class SchoolManagementSystem {
     public SchoolManagementSystem() {
         this.departments = new Department[MAX_DEPART_NUM];
         this.students = new Student[MAX_STUDENT_NUM];
+        this.course = new Course[MAX_COURSE_NUM];
+        this.teachers = new Teacher[MAX_TEACHER_NUM];
     }
 
     /**
      * adds a new department if there are less than 5 existing departments
      * else it will fail to add a department
-     * @param department Department
+     * @param departmentName String of department name
      */
-    public void addDepartment(Department department) {
-        if (departmentNum < MAX_DEPART_NUM) {
-            departments[departmentNum] = department;
+    public void addDepartment(String departmentName) {
+        for (int i = 0; i < departments.length; i++){
+            if (departmentNum < MAX_DEPART_NUM) {
+                departments[i] = departmentName;
+            }
         }
         System.out.println("Max departments reached, add a new department failed");
     }

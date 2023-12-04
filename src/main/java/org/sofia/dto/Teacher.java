@@ -15,7 +15,7 @@ public class Teacher {
     private static int nextId = 1;
 
     public Teacher(String fname, String lname, Department department) {
-        this.teacherId = String.format("T%03d", nextId++);
+        teacherId = String.format("T%03d", nextId++);
         this.fname = fname;
         this.lname = lname;
         this.department = department;

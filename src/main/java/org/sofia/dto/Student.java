@@ -19,7 +19,7 @@ public class Student {
     private static int nextId = 1;
 
     public Student(String fname, String lname, Department department) {
-        this.studentId = String.format("S%03d", nextId++);
+        studentId = String.format("S%03d", nextId++);
         this.fname = fname;
         this.lname = lname;
         this.department = department;

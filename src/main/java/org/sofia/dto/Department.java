@@ -13,7 +13,7 @@ public class Department {
     private String departmentName;
 
     public Department(String departmentName) {
-        this.departmentId = String.format("D%03d", nextId++);
+        departmentId = String.format("D%03d", nextId++);
         this.departmentName = departmentName;
     }
 

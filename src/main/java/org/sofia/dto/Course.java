@@ -10,20 +10,22 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Course {
-    private static final int MAX_STUDENT_NUM = 5;
-
     private double credit;
     private String courseId;
     private Student[] students;
     private Department department;
     private int studentNum = 0;
-    private Teacher teacher;
+    private Teacher teacher = null;
     private String courseName;
 
-    public Course(double credit, String courseId, Department department) {
+    private static int nextId = 1;
+    private static final int MAX_STUDENT_NUM = 5;
+
+    public Course(String courseName, double credit, Department department) {
+        courseId = String.format("C%03d", nextId++);
         this.credit = credit;
-        this.courseId = courseId;
-        this.students = students;
+        this.courseName = courseName;
         this.department = department;
+        students = new Student[MAX_STUDENT_NUM];
     }
 }
