@@ -22,6 +22,6 @@ public class Teacher {
     }
 
     public String toString() {
-        return teacherId + fname + lname + department;
+        return "{id= '" + teacherId + "', fname= '" + fname + "', lname= '" + lname + "',department= " + department + "}";
     }
 }

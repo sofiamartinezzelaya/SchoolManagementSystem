@@ -19,7 +19,7 @@ public class SchoolManagementSystem {
     private Department[] departments;
     private Course[] course;
 
-    public SchoolManagementSystem() {
+    public SchoolManagementSystem(String name) {
         this.departments = new Department[MAX_DEPART_NUM];
         this.students = new Student[MAX_STUDENT_NUM];
         this.course = new Course[MAX_COURSE_NUM];
@@ -32,12 +32,14 @@ public class SchoolManagementSystem {
      * @param departmentName String of department name
      */
     public void addDepartment(String departmentName) {
-        for (int i = 0; i < departments.length; i++){
-            if (departmentNum < MAX_DEPART_NUM) {
-                departments[i] = departmentName;
+        for (int i = 0; i < MAX_DEPART_NUM; i++) {
+            if (departments[i] == null) {
+                Department department = new Department(departmentName);
+                departments[i] = department;
+                System.out.printf("Department %s added successfully\n", departmentName);
+                return;
             }
-        }
-        System.out.println("Max departments reached, add a new department failed");
+        } System.out.println("Failed to add department");
     }
 
     /**
@@ -77,8 +79,12 @@ public class SchoolManagementSystem {
     /**
      * Displays all departments in the system that is not a null
      */
-    public void printDepartment(Department department) {
-        for ()
+    public void printDepartment() {
+        for (Department department: departments) {
+            if (department != null) {
+                System.out.println(department);
+            }
+        }
     }
 
     /**
@@ -112,10 +118,15 @@ public class SchoolManagementSystem {
      * finds a department in the departments based on the department id
      * if the department id does not match with anything in the departments, will return a null
      * @param departmentId Strind of departmentId
-     * @return the Department department that was being searched
+     * @return the department from the Department class that was being searched
      */
     public Department findDepartment(String departmentId) {
-        return null;//filler for empty method, will be replaced during completion
+        for (Department department : departments) {
+            if (department.getDepartmentId().equals(departmentId)) {
+                return department;
+            }
+        }
+        return null;
     }
 
     /**

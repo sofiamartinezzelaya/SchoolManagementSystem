@@ -3,19 +3,19 @@ package org.sofia.dto;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Arrays;
 
 @EqualsAndHashCode
 @Getter
 @Setter
-@ToString
 public class Course {
     private double credit;
     private String courseId;
     private Student[] students;
     private Department department;
     private int studentNum = 0;
-    private Teacher teacher = null;
+    private Teacher teacher;
     private String courseName;
 
     private static int nextId = 1;
@@ -27,5 +27,12 @@ public class Course {
         this.courseName = courseName;
         this.department = department;
         students = new Student[MAX_STUDENT_NUM];
+    }
+
+    @Override
+    public String toString() {
+        return "{id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " + teacher
+                + ", department= " + department + ", students[]= " + Arrays.toString(students);
+
     }
 }

@@ -17,7 +17,8 @@ public class Department {
         this.departmentName = departmentName;
     }
 
+    @Override
     public String toString() {
-        return departmentId + departmentName;
+        return "Department {" + "id= " + departmentId + ", departmentName= '" + departmentName + "'}";
     }
 }

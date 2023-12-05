@@ -4,6 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
+
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -28,7 +30,8 @@ public class Student {
 
     @Override
      public String toString() {
-        return studentId + fname + lname + department + courseNum + courses;
+        return "{id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " + department
+                + ", courseNum= " + courseNum + ", courses[]= " + Arrays.toString(courses) + "}";
      }
 
 
