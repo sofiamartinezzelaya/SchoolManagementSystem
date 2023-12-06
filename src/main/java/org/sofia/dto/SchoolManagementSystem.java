@@ -13,6 +13,7 @@ public class SchoolManagementSystem {
     private static final int MAX_TEACHER_NUM = 20;
     private static final int MAX_COURSE_NUM = 30;
 
+    private int studentNum = 0;
     private Student[] students;
     private Teacher[] teachers;
     private int departmentNum = 0;
@@ -36,22 +37,30 @@ public class SchoolManagementSystem {
             if (departments[i] == null) {
                 Department department = new Department(departmentName);
                 departments[i] = department;
-                System.out.printf("Department %s added successfully\n", departmentName);
+                System.out.printf("Add department %s successfully.\n", department);
                 return;
             }
-        } System.out.println("Failed to add department");
+        }
+        System.out.println("Failed to add department");
     }
 
     /**
      * adds a new student if there are less than 200 existing students
      * else it will fail to add a student
-     * @param studentId String studentId
      * @param fname String student's first name
      * @param lname String student's last name
+     * @param departmentId String of department id
      */
-    public void addStudent(String studentId, String fname, String lname) {
-        //call findDepartment
-
+    public void addStudent(String fname, String lname, String departmentId) {
+        for (int i = 0; i < MAX_STUDENT_NUM; i++) {
+            if (students[i] == null) {
+                Student student = new Student(fname, lname, findDepartment(departmentId));
+                students[i] = student;
+                System.out.printf("%s added successfully.\n", student);
+                return;
+            }
+        }
+        System.out.println("Failed to add student");
     }
 
     /**
@@ -93,6 +102,11 @@ public class SchoolManagementSystem {
      * else it won't display the course or department names
      */
     public void printStudent() {
+        for (Student student : students) {
+            if (student != null) {
+                System.out.println(student);
+            }
+        }
 
     }
 
@@ -156,7 +170,12 @@ public class SchoolManagementSystem {
      * @return the Student student that was being searched
      */
     public Student findStudent(String studentId) {
-        return null;//filler for empty method, will be replaced during completion
+        for (Student student : students) {
+            if (student.getStudentId().equals(studentId)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     /**

@@ -13,5 +13,16 @@ public class Main {
         schoolManagementSystem.printDepartment();
 
         schoolManagementSystem.findDepartment("D004");
+
+        schoolManagementSystem.addDepartment("Art");
+
+        schoolManagementSystem.addStudent("Mike", "Conan", "D001");
+
+        schoolManagementSystem.printStudent();
+
+        schoolManagementSystem.findStudent("S001");
+
+
+        System.out.println(schoolManagementSystem.findDepartment("D004"));
     }
 }

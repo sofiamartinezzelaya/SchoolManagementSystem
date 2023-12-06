@@ -27,6 +27,7 @@ public class Course {
         this.courseName = courseName;
         this.department = department;
         students = new Student[MAX_STUDENT_NUM];
+        teacher =  new Teacher("", "", department);
     }
 
     @Override
