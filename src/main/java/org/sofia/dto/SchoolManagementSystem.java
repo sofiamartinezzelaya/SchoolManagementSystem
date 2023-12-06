@@ -19,12 +19,13 @@ public class SchoolManagementSystem {
     private Teacher[] teachers;
     private int departmentNum = 0;
     private Department[] departments;
-    private Course[] course;
+    private int courseNum = 0;
+    private Course[] courses;
 
     public SchoolManagementSystem(String name) {
         this.departments = new Department[MAX_DEPART_NUM];
         this.students = new Student[MAX_STUDENT_NUM];
-        this.course = new Course[MAX_COURSE_NUM];
+        this.courses = new Course[MAX_COURSE_NUM];
         this.teachers = new Teacher[MAX_TEACHER_NUM];
     }
 
@@ -34,10 +35,10 @@ public class SchoolManagementSystem {
      * @param departmentName String of department name
      */
     public void addDepartment(String departmentName) {
-        for (int i = 0; i < MAX_DEPART_NUM; i++) {
-            if (departments[i] == null) {
+        for (; departmentNum < MAX_DEPART_NUM; departmentNum++) {
+            if (departments[departmentNum] == null) {
                 Department department = new Department(departmentName);
-                departments[i] = department;
+                departments[departmentNum] = department;
                 System.out.printf("Add department %s successfully.\n", department);
                 return;
             }
@@ -53,10 +54,10 @@ public class SchoolManagementSystem {
      * @param departmentId String of department id
      */
     public void addStudent(String fname, String lname, String departmentId) {
-        for (int i = 0; i < MAX_STUDENT_NUM; i++) {
-            if (students[i] == null) {
+        for (; studentNum < MAX_STUDENT_NUM; studentNum++) {
+            if (students[studentNum] == null) {
                 Student student = new Student(fname, lname, findDepartment(departmentId));
-                students[i] = student;
+                students[studentNum] = student;
                 System.out.printf("%s added successfully.\n", student);
                 return;
             }
@@ -86,12 +87,19 @@ public class SchoolManagementSystem {
     /**
      * adds a new course if there are less than 30 existing courses
      * else it will fail to add a course
-     * @param courseId String courseId
-     * @param credit double number of redits earned from course
      * @param courseName String course's name
+     * @param credit double number of credits earned from course
+     * @param departmentId String of the department id
      */
-    public void addCourse(String courseId, double credit, String courseName) {
-
+    public void addCourse(String courseName, double credit, String departmentId) {
+        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
+            if (courses[courseNum] == null) {
+                Course course = new Course(courseName, credit, findDepartment(departmentId));
+                courses[courseNum] = course;
+                System.out.printf("%s added successfully", course);
+            }
+        }
+        System.out.println("Max number of courses reaches, adda new course failed");
     }
 
     /**
@@ -137,7 +145,11 @@ public class SchoolManagementSystem {
      * else it won't display the teachers, course or department names
      */
     public void printCourse() {
-
+        for (Course course : courses) {
+            if (course != null) {
+                System.out.println(course);
+            }
+        }
     }
 
     /**
@@ -177,6 +189,11 @@ public class SchoolManagementSystem {
      * @return the Course course that was being searched
      */
     public Course findCourse(String courseId) {
+        for (Course course : courses) {
+            if (course.getCourseId().equals(courseId)) {
+                return course;
+            }
+        }
         return null;//filler for empty method, will be replaced during completion
     }
 
