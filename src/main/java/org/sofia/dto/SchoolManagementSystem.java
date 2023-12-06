@@ -199,7 +199,7 @@ public class SchoolManagementSystem {
                 return course;
             }
         }
-        return null;//filler for empty method, will be replaced during completion
+        return null;
     }
 
     /**
@@ -224,6 +224,17 @@ public class SchoolManagementSystem {
      * @param courseId String of courseId
      */
     public void modifyCourseTeacher(String teacherId, String courseId) {
+        for(Course course : courses) {
+            if (findCourse(courseId) == null) {
+                System.out.printf("Cannot find any course that matches the course id %s, modification for course " +
+                                  "%s failed", courseId);
+            }
+            else if (findTeacher(teacherId) ==null) {
+                System.out.printf("Cannot find any teacher that matches the teacher id %s, modification for teacher " +
+                        "%s failed", teacherId);
+            }
+            courses[courseNum] = ; //work on
+        }
 
     }
 

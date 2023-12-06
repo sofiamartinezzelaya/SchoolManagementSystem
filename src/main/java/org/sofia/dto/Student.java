@@ -25,6 +25,9 @@ public class Student {
         this.fname = fname;
         this.lname = lname;
         this.department = department;
+    }
+
+    public void registerCourse(Course course) {
 
     }
 

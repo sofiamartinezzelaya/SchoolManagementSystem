@@ -24,6 +24,7 @@ public class Main {
 
         schoolManagementSystem.addTeacher("Yi", "Wang", "D001");
         schoolManagementSystem.addTeacher("Shawna", "Lambert", "D004");
+        schoolManagementSystem.printTeacher();
         // add new teacher until max teacher is reached and eventually will fail to add teacher
 
         schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D001");
