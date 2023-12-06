@@ -9,6 +9,8 @@ public class Main {
         schoolManagementSystem.addDepartment("Health Sciences");
         schoolManagementSystem.addDepartment("Engineering");
         schoolManagementSystem.addDepartment("Art");
+        schoolManagementSystem.addDepartment("History");
+        schoolManagementSystem.addDepartment("Medicine");
 
         schoolManagementSystem.printDepartment();
 
@@ -24,5 +26,13 @@ public class Main {
 
 
         System.out.println(schoolManagementSystem.findDepartment("D004"));
+
+        schoolManagementSystem.addStudent("John", "Snow", "D002");
+        schoolManagementSystem.printStudent();
+
+        schoolManagementSystem.addTeacher("Yi", "Wang", "D001");
+        schoolManagementSystem.addTeacher("Shawna", "Lambert", "D007");
+        schoolManagementSystem.findTeacher("T001");
+        System.out.println(schoolManagementSystem.findTeacher("T001"));
     }
 }

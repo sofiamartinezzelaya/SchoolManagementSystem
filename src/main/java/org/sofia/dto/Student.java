@@ -14,7 +14,7 @@ public class Student {
     private String lname;
     private String studentId;
     private Course[] courses;
-    private int courseNum;
+    private int courseNum = 0;
     private Department department;
 
     private static final int MAX_COURSE_NUM = 5;
@@ -31,7 +31,7 @@ public class Student {
     @Override
      public String toString() {
         return "Student {id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " + department
-                + ", courseNum= " + courseNum + ", courses= [] " + Arrays.toString(courses) + "}";
+                + ", courseNum= " + courseNum + ", courses= [" + "}";
      }
 
 

@@ -15,6 +15,7 @@ public class SchoolManagementSystem {
 
     private int studentNum = 0;
     private Student[] students;
+    private int teacherNum = 0;
     private Teacher[] teachers;
     private int departmentNum = 0;
     private Department[] departments;
@@ -66,12 +67,20 @@ public class SchoolManagementSystem {
     /**
      * adds a new teacher if there are less than 20 existing teachers
      * else it will fail to add a teacher
-     * @param teacherId String teacherId
      * @param fname String teacher's first name
      * @param lname String teacher's last name
+     * @param departmentId String of department id
      */
-    public void addTeacher(String teacherId, String fname, String lname) {
-
+    public void addTeacher(String fname, String lname, String departmentId) {
+        for (; teacherNum < MAX_TEACHER_NUM; teacherNum++) {
+            if (teachers[teacherNum] == null) {
+                Teacher teacher = new Teacher(fname, lname, findDepartment(departmentId));
+                teachers[teacherNum] = teacher;
+                System.out.printf("%s added successfully.\n", teacher);
+                return;
+            }
+        }
+        System.out.println("Max teacher reached, add a new teacher failed");
     }
 
     /**
@@ -107,7 +116,6 @@ public class SchoolManagementSystem {
                 System.out.println(student);
             }
         }
-
     }
 
     /**
@@ -116,7 +124,11 @@ public class SchoolManagementSystem {
      * else it won't display the course or department names
      */
     public void printTeacher() {
-
+        for (Teacher teacher : teachers) {
+            if (teacher != null) {
+                System.out.println(teacher);
+            }
+        }
     }
 
     /**
@@ -150,7 +162,12 @@ public class SchoolManagementSystem {
      * @return the Teacher teacher that was being searched
      */
     public Teacher findTeacher(String teacherId) {
-        return null;//filler for empty method, will be replaced during completion
+        for (Teacher teacher : teachers) {
+            if (teacher.getTeacherId().equals(teacherId)) {
+                return teacher;
+            }
+        }
+        return null;
     }
 
     /**
