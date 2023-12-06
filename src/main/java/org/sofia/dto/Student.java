@@ -30,10 +30,9 @@ public class Student {
 
     @Override
      public String toString() {
+        String courseStr = Arrays.toString(courses);
+
         return "Student {id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " + department
-                + ", courseNum= " + courseNum + ", courses= [" + "}";
+                + ", courseNum= " + courseNum + ", courses= [" + courseStr +  "}";
      }
-
-
-
 }

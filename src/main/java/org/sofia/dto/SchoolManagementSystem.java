@@ -96,7 +96,8 @@ public class SchoolManagementSystem {
             if (courses[courseNum] == null) {
                 Course course = new Course(courseName, credit, findDepartment(departmentId));
                 courses[courseNum] = course;
-                System.out.printf("%s added successfully", course);
+                System.out.printf("%s added successfully\n", course);
+                return;
             }
         }
         System.out.println("Max number of courses reaches, adda new course failed");
@@ -108,7 +109,8 @@ public class SchoolManagementSystem {
     public void printDepartment() {
         for (Department department: departments) {
             if (department != null) {
-                System.out.println(department);
+                System.out.println(department);     //double check output and modify if needed (ex. if courses not being
+                                                    // printed how expected
             }
         }
     }
@@ -121,7 +123,8 @@ public class SchoolManagementSystem {
     public void printStudent() {
         for (Student student : students) {
             if (student != null) {
-                System.out.println(student);
+                System.out.println(student);         //double check output and modify if needed (ex. if courses not being
+                                                    // printed how expected
             }
         }
     }
@@ -134,7 +137,8 @@ public class SchoolManagementSystem {
     public void printTeacher() {
         for (Teacher teacher : teachers) {
             if (teacher != null) {
-                System.out.println(teacher);
+                System.out.println(teacher);         //double check output and modify if needed (ex. if courses not being
+                                                     // printed how expected
             }
         }
     }
@@ -147,7 +151,8 @@ public class SchoolManagementSystem {
     public void printCourse() {
         for (Course course : courses) {
             if (course != null) {
-                System.out.println(course);
+                System.out.println(course);          //double check output and modify if needed (ex. if courses not being
+                                                     // printed how expected
             }
         }
     }
@@ -155,7 +160,7 @@ public class SchoolManagementSystem {
     /**
      * finds a department in the departments based on the department id
      * if the department id does not match with anything in the departments, will return a null
-     * @param departmentId Strind of departmentId
+     * @param departmentId String of departmentId
      * @return the department from the Department class that was being searched
      */
     public Department findDepartment(String departmentId) {
@@ -169,9 +174,9 @@ public class SchoolManagementSystem {
 
     /**
      * finds a teacher in the teachers based on the teacher id
-     * if the teacher id does not match with anything in the teachers, will return a null
+     * if the teacher id is found in the teachers array and return the teacher with data type Teacher
      * @param teacherId String of teacherId
-     * @return the Teacher teacher that was being searched
+     * @return a null if teacher not found
      */
     public Teacher findTeacher(String teacherId) {
         for (Teacher teacher : teachers) {
@@ -199,9 +204,9 @@ public class SchoolManagementSystem {
 
     /**
      * finds a student in the students based on the student id
-     * if the studentid does not match with anything in the students, will return a null
+     * if the studentid is found in students then it will return the student with data type Student
      * @param studentId String of studentId
-     * @return the Student student that was being searched
+     * @return null if studentId not found
      */
     public Student findStudent(String studentId) {
         for (Student student : students) {

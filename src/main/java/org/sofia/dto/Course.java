@@ -32,7 +32,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "{id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " + teacher
+        return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " + teacher
                 + ", department= " + department + ", students[]= " + Arrays.toString(students);
 
     }

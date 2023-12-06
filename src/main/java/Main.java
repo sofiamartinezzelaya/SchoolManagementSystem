@@ -14,25 +14,19 @@ public class Main {
 
         schoolManagementSystem.printDepartment();
 
-        schoolManagementSystem.findDepartment("D004");
-
-        schoolManagementSystem.addDepartment("Art");
-
         schoolManagementSystem.addStudent("Mike", "Conan", "D001");
+        schoolManagementSystem.addStudent("Elena", "Dobrev", "D001");
+        schoolManagementSystem.addStudent("Stefan", "Walker", "D001");
+        schoolManagementSystem.addStudent("Ian", "Sometholder", "D002");
+        // add new student until max student is reached and eventually will fail to add student
 
-        schoolManagementSystem.printStudent();
-
-        schoolManagementSystem.findStudent("S001");
-
-
-        System.out.println(schoolManagementSystem.findDepartment("D004"));
-
-        schoolManagementSystem.addStudent("John", "Snow", "D002");
         schoolManagementSystem.printStudent();
 
         schoolManagementSystem.addTeacher("Yi", "Wang", "D001");
-        schoolManagementSystem.addTeacher("Shawna", "Lambert", "D007");
-        schoolManagementSystem.findTeacher("T001");
-        System.out.println(schoolManagementSystem.findTeacher("T001"));
+        schoolManagementSystem.addTeacher("Shawna", "Lambert", "D004");
+        // add new teacher until max teacher is reached and eventually will fail to add teacher
+
+        schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D001");
+        schoolManagementSystem.printCourse();
     }
 }
