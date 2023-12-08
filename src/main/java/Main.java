@@ -17,7 +17,7 @@ public class Main {
         schoolManagementSystem.addStudent("Mike", "Conan", "D001");
         schoolManagementSystem.addStudent("Elena", "Dobrev", "D001");
         schoolManagementSystem.addStudent("Stefan", "Walker", "D001");
-        schoolManagementSystem.addStudent("Ian", "Sometholder", "D002");
+        schoolManagementSystem.addStudent("Ian", "Somerholder", "D002");
         // add new student until max student is reached and eventually will fail to add student
 
         schoolManagementSystem.printStudent();

@@ -25,6 +25,7 @@ public class Student {
         this.fname = fname;
         this.lname = lname;
         this.department = department;
+        courses = new Course[MAX_COURSE_NUM];
     }
 
     public void registerCourse(Course course) {
@@ -33,9 +34,15 @@ public class Student {
 
     @Override
      public String toString() {
-        String courseStr = Arrays.toString(courses);
+        String courseStr = "[";
+        for (Course course : courses) {
+            if (course != null) {
+                courseStr += course;
+            }
+        }
+        courseStr += "]";
 
         return "Student {id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " + department
-                + ", courseNum= " + courseNum + ", courses= [" + courseStr +  "}";
+                + ", courseNum= " + courseNum + ", courses=" + courseStr +  "}";
      }
 }

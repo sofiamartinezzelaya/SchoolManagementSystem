@@ -32,8 +32,14 @@ public class Course {
 
     @Override
     public String toString() {
+        String studentStr = "[";
+        for (Student student : students) {
+            if (student != null) {
+                studentStr += student;
+            }
+        }
+        studentStr += "]";
         return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " + teacher
-                + ", department= " + department + ", students[]= " + Arrays.toString(students);
-
+                + ", department= " + department + ", students= " + studentStr;
     }
 }
