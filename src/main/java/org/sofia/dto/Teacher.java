@@ -10,6 +10,7 @@ import lombok.Setter;
 public class Teacher {
     private String fname;
     private String lname;
+    private String name;
     private Department department;
     private String teacherId;
     private static int nextId = 1;
@@ -19,9 +20,11 @@ public class Teacher {
         this.fname = fname;
         this.lname = lname;
         this.department = department;
+        name = fname + " " + lname;
     }
 
     public String toString() {
-        return "Teacher {id= '" + teacherId + "', fname= '" + fname + "', lname= '" + lname + "',department= " + department + "}";
+        return "Teacher {id= '" + teacherId + "', fname= '" + fname + "', lname= '" + lname + "', department= " +
+                department.getDepartmentName() + "}";
     }
 }

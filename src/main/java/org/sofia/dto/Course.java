@@ -4,8 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Arrays;
-
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -27,7 +25,7 @@ public class Course {
         this.courseName = courseName;
         this.department = department;
         students = new Student[MAX_STUDENT_NUM];
-        teacher =  new Teacher("", "", department);
+        teacher = new Teacher("", "", department);
     }
 
     @Override
@@ -39,7 +37,7 @@ public class Course {
             }
         }
         studentStr += "]";
-        return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " + teacher
-                + ", department= " + department + ", students= " + studentStr;
+        return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " +
+                teacher.getName() + ", department= " + department.getDepartmentName() + ", students= " + studentStr;
     }
 }

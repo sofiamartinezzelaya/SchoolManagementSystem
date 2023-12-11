@@ -15,6 +15,7 @@ public class SchoolManagementSystem {
 
     private int studentNum = 0;
     private Student[] students;
+    private String teacherId;       //check
     private int teacherNum = 0;
     private Teacher[] teachers;
     private int departmentNum = 0;
@@ -23,10 +24,10 @@ public class SchoolManagementSystem {
     private Course[] courses;
 
     public SchoolManagementSystem(String name) {
-        this.departments = new Department[MAX_DEPART_NUM];
-        this.students = new Student[MAX_STUDENT_NUM];
-        this.courses = new Course[MAX_COURSE_NUM];
-        this.teachers = new Teacher[MAX_TEACHER_NUM];
+        departments = new Department[MAX_DEPART_NUM];
+        students = new Student[MAX_STUDENT_NUM];
+        courses = new Course[MAX_COURSE_NUM];
+        teachers = new Teacher[MAX_TEACHER_NUM];
     }
 
     /**
@@ -195,7 +196,7 @@ public class SchoolManagementSystem {
      */
     public Course findCourse(String courseId) {
         for (Course course : courses) {
-            if (course.getCourseId().equals(courseId)) {
+            if (course !=  null && course.getCourseId().equals(courseId)) {
                 return course;
             }
         }
@@ -224,18 +225,21 @@ public class SchoolManagementSystem {
      * @param courseId String of courseId
      */
     public void modifyCourseTeacher(String teacherId, String courseId) {
-        for(Course course : courses) {
-            if (findCourse(courseId) == null) {
-                System.out.printf("Cannot find any course that matches the course id %s, modification for course " +
-                                  "%s failed", courseId);
-            }
-            else if (findTeacher(teacherId) ==null) {
+        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
+            if(findCourse(courseId) != null && courses[courseNum].getCourseId().equals(courseId)) {
+                Teacher teacher = findTeacher(teacherId);
+                if(teacher != null && teacher.getTeacherId().equals(teacherId)) {
+                    courses[courseNum].setTeacher(teacher);
+                    System.out.printf("%s teacher info updated successfully.\n", courses);
+                    return;
+                }
                 System.out.printf("Cannot find any teacher that matches the teacher id %s, modification for teacher " +
-                        "%s failed", teacherId);
+                                  "%s failed", teacherId, teacherId);
+                return;
             }
-            courses[courseNum] = ; //work on
         }
-
+        System.out.printf("Cannot find any course that matches the course id %s, modification for course " +
+                "%s failed", courseId, courseId);
     }
 
     /**
@@ -243,7 +247,7 @@ public class SchoolManagementSystem {
      * if the parametes does not match with anything, prints a message
      * if the student has registed for the max num of courses, prints a message
      * if the course is registered by max num of students, prints a message
-     * else it will add te course to the students registered course arrat and add the student to the reistered students
+     * else it will add te course to the students registered course array and add the student to the reistered students
              array
      * @param studentId String of studentId
      * @param courseId string of courseId
@@ -251,10 +255,4 @@ public class SchoolManagementSystem {
     public void registerCourse(String studentId, String courseId) {
 
     }
-
-
-
-
-
-
 }

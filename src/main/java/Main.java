@@ -1,4 +1,3 @@
-import org.sofia.dto.Department;
 import org.sofia.dto.SchoolManagementSystem;
 
 public class Main {
@@ -27,7 +26,9 @@ public class Main {
         schoolManagementSystem.printTeacher();
         // add new teacher until max teacher is reached and eventually will fail to add teacher
 
-        schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D001");
+        schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D005");
         schoolManagementSystem.printCourse();
+        System.out.println();
+        schoolManagementSystem.modifyCourseTeacher("T001", "C001");
     }
 }
