@@ -30,5 +30,6 @@ public class Main {
         schoolManagementSystem.printCourse();
         System.out.println();
         schoolManagementSystem.modifyCourseTeacher("T001", "C001");
+        schoolManagementSystem.registerCourse("S001", "C002");
     }
 }

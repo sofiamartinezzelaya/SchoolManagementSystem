@@ -166,7 +166,7 @@ public class SchoolManagementSystem {
      */
     public Department findDepartment(String departmentId) {
         for (Department department : departments) {
-            if (department.getDepartmentId().equals(departmentId)) {
+            if (department != null && department.getDepartmentId().equals(departmentId)) {
                 return department;
             }
         }
@@ -181,7 +181,7 @@ public class SchoolManagementSystem {
      */
     public Teacher findTeacher(String teacherId) {
         for (Teacher teacher : teachers) {
-            if (teacher.getTeacherId().equals(teacherId)) {
+            if (teacher != null && teacher.getTeacherId().equals(teacherId)) {
                 return teacher;
             }
         }
@@ -211,7 +211,7 @@ public class SchoolManagementSystem {
      */
     public Student findStudent(String studentId) {
         for (Student student : students) {
-            if (student.getStudentId().equals(studentId)) {
+            if (student != null && student.getStudentId().equals(studentId)) {
                 return student;
             }
         }
@@ -244,15 +244,34 @@ public class SchoolManagementSystem {
 
     /**
      * registers a course for a student based on parameters
-     * if the parametes does not match with anything, prints a message
+     * if the parameters does not match with anything, prints a message
      * if the student has registed for the max num of courses, prints a message
      * if the course is registered by max num of students, prints a message
      * else it will add te course to the students registered course array and add the student to the reistered students
-             array
+       array
      * @param studentId String of studentId
      * @param courseId string of courseId
      */
     public void registerCourse(String studentId, String courseId) {
-
+        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
+            Course course = findCourse(courseId);
+            Student student = findStudent(studentId);
+            if (student == null || !student.getStudentId().equals(studentId)) {
+                System.out.printf("Cannot find any student that matches the student id %s, register course for student %s failed", studentId, studentId);
+                return;
+            }
+            else if (course == null || !courses[courseNum].getCourseId().equals(courseId)) {
+                System.out.printf("Cannot find any student that matches with the course id %s, register course for student %s failed", courseId, studentId);
+                return;
+            }
+            else if (students[studentNum].getCourseNum() < MAX_COURSE_NUM) {
+                System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed", studentId, studentId);
+                return;
+            }
+            else if (courses[courseNum].getStudentNum() < MAX_STUDENT_NUM) {
+                System.out.printf("Courses %s has been fully registerd, register course %s for student %s failed", studentId, courseId, studentId);
+                return;
+            }
+        }
     }
 }

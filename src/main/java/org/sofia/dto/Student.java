@@ -4,8 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Arrays;
-
 @EqualsAndHashCode
 @Getter
 @Setter
@@ -28,9 +26,13 @@ public class Student {
         courses = new Course[MAX_COURSE_NUM];
     }
 
-    public void registerCourse(Course course) {
-
-    }
+//    public void registerCourse(Course course) {
+//        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
+//            if ()
+//            if (findCourse(courseId) != null && courses[courseNum].getCourseId().equals(courseId))
+//        }
+//
+//    }
 
     @Override
      public String toString() {
@@ -42,7 +44,7 @@ public class Student {
         }
         courseStr += "]";
 
-        return "Student {id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " + department
-                + ", courseNum= " + courseNum + ", courses=" + courseStr +  "}";
+        return "Student {id= '" + studentId + "', fname= '" + fname + "', lname= '" + lname + "', department= " +
+                department + ", courseNum= " + courseNum + ", courses=" + courseStr +  "}";
      }
 }
