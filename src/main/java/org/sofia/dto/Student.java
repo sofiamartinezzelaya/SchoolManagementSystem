@@ -26,13 +26,12 @@ public class Student {
         courses = new Course[MAX_COURSE_NUM];
     }
 
-//    public void registerCourse(Course course) {
-//        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
-//            if ()
-//            if (findCourse(courseId) != null && courses[courseNum].getCourseId().equals(courseId))
-//        }
-//
-//    }
+    public void registerCourse(Course course) {
+        if (course != null) {
+            courses[courseNum] = course;
+        }
+
+    }
 
     @Override
      public String toString() {

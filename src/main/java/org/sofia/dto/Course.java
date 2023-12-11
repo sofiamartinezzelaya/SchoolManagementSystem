@@ -28,15 +28,21 @@ public class Course {
         teacher = new Teacher("", "", department);
     }
 
+//    public void registerStudent(Student student) {
+//        for (; studentNum < MAX_STUDENT_NUM; studentNum++) {
+//            students[studentNum] = student;
+//        }
+//    }
+
     @Override
     public String toString() {
-        String studentStr = "[";
+        StringBuilder studentStr = new StringBuilder("[");
         for (Student student : students) {
             if (student != null) {
-                studentStr += student;
+                studentStr.append(student);
             }
         }
-        studentStr += "]";
+        studentStr.append("]");
         return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " +
                 teacher.getName() + ", department= " + department.getDepartmentName() + ", students= " + studentStr;
     }

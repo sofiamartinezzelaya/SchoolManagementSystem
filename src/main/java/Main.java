@@ -28,8 +28,8 @@ public class Main {
 
         schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D005");
         schoolManagementSystem.printCourse();
-        System.out.println();
+
         schoolManagementSystem.modifyCourseTeacher("T001", "C001");
-        schoolManagementSystem.registerCourse("S001", "C002");
+        schoolManagementSystem.registerCourse("S001", "C001");
     }
 }

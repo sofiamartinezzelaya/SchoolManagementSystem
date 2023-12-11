@@ -253,25 +253,34 @@ public class SchoolManagementSystem {
      * @param courseId string of courseId
      */
     public void registerCourse(String studentId, String courseId) {
+        Course courseFound = findCourse(courseId);
+        Student studentFound = findStudent(studentId);
+
         for (; courseNum < MAX_COURSE_NUM; courseNum++) {
-            Course course = findCourse(courseId);
-            Student student = findStudent(studentId);
-            if (student == null || !student.getStudentId().equals(studentId)) {
+            if (courseFound != null && studentFound != null) {
+                break;
+            }
+        }
+            if (studentFound == null || !studentFound.getStudentId().equals(studentId)) {
                 System.out.printf("Cannot find any student that matches the student id %s, register course for student %s failed", studentId, studentId);
                 return;
             }
-            else if (course == null || !courses[courseNum].getCourseId().equals(courseId)) {
-                System.out.printf("Cannot find any student that matches with the course id %s, register course for student %s failed", courseId, studentId);
+            else if (courseFound == null || !courseFound.getCourseId().equals(courseId)) {
+                System.out.printf("Cannot find any course that matches with the course id %s, register course for student %s failed", courseId, studentId);
                 return;
             }
-            else if (students[studentNum].getCourseNum() < MAX_COURSE_NUM) {
+            else if (students[studentNum].getCourseNum() >= MAX_COURSE_NUM) {
                 System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed", studentId, studentId);
                 return;
             }
-            else if (courses[courseNum].getStudentNum() < MAX_STUDENT_NUM) {
-                System.out.printf("Courses %s has been fully registerd, register course %s for student %s failed", studentId, courseId, studentId);
+            else if (courses[courseNum].getStudentNum() >= MAX_STUDENT_NUM) {
+                System.out.printf("Courses %s has been fully registered, register course %s for student %s failed", studentId, courseId, studentId);
                 return;
             }
-        }
+            Student student = new Student(studentFound.getFname(), studentFound.getLname(), studentFound.getDepartment());
+            Course course = new Course(courseFound.getCourseName(), courseFound.getCredit(), courseFound.getDepartment());
+
+            System.out.printf("Latest student info: %s \nLatest course info: %s", student, course);
+
     }
 }
