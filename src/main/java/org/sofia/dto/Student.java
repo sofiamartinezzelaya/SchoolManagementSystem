@@ -1,5 +1,11 @@
 package org.sofia.dto;
 
+/**
+ * Student
+ *
+ * @author Sofia Martinez
+ */
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,12 +16,13 @@ import lombok.Setter;
 public class Student {
     private String fname;
     private String lname;
+    private String name;
     private String studentId;
     private Course[] courses;
     private int courseNum = 0;
     private Department department;
 
-    private static final int MAX_COURSE_NUM = 5;
+    public static final int MAX_COURSE_NUM = 5;
     private static int nextId = 1;
 
     public Student(String fname, String lname, Department department) {
@@ -24,13 +31,17 @@ public class Student {
         this.lname = lname;
         this.department = department;
         courses = new Course[MAX_COURSE_NUM];
+        name = fname + " " + lname;
     }
 
     public void registerCourse(Course course) {
-        if (course != null) {
-            courses[courseNum] = course;
+        for (int i = 0; i < MAX_COURSE_NUM; i++) {
+            if (courses[i] == null) {
+                courses[i] = course;
+                courseNum++;
+                return;
+            }
         }
-
     }
 
     @Override
@@ -38,7 +49,7 @@ public class Student {
         String courseStr = "[";
         for (Course course : courses) {
             if (course != null) {
-                courseStr += course;
+                courseStr += course.getCourseName() + ", ";
             }
         }
         courseStr += "]";

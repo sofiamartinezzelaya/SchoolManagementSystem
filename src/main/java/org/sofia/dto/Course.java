@@ -1,5 +1,11 @@
 package org.sofia.dto;
 
+/**
+ * Course
+ *
+ * @author Sofia Martinez
+ */
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +23,7 @@ public class Course {
     private String courseName;
 
     private static int nextId = 1;
-    private static final int MAX_STUDENT_NUM = 5;
+    public static final int MAX_STUDENT_NUM = 5;
 
     public Course(String courseName, double credit, Department department) {
         courseId = String.format("C%03d", nextId++);
@@ -28,22 +34,27 @@ public class Course {
         teacher = new Teacher("", "", department);
     }
 
-//    public void registerStudent(Student student) {
-//        for (; studentNum < MAX_STUDENT_NUM; studentNum++) {
-//            students[studentNum] = student;
-//        }
-//    }
+    public void registerStudent(Student student) {
+        for (int i = 0; i < MAX_STUDENT_NUM; i++) {
+            if (students[i] == null) {
+                students[i] = student;
+                studentNum++;
+                return;
+            }
+        }
+    }
 
     @Override
     public String toString() {
-        StringBuilder studentStr = new StringBuilder("[");
+        String studentStr = "[";
         for (Student student : students) {
             if (student != null) {
-                studentStr.append(student);
+                studentStr += student.getName() + ", ";
             }
         }
-        studentStr.append("]");
+        studentStr += "]";
+
         return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " +
-                teacher.getName() + ", department= " + department.getDepartmentName() + ", students= " + studentStr;
+                teacher.getName() + ", department= " + department.getDepartmentName() + ", students= " + studentStr + "}";
     }
 }

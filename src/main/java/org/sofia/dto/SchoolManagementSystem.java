@@ -15,7 +15,6 @@ public class SchoolManagementSystem {
 
     private int studentNum = 0;
     private Student[] students;
-    private String teacherId;       //check
     private int teacherNum = 0;
     private Teacher[] teachers;
     private int departmentNum = 0;
@@ -31,7 +30,8 @@ public class SchoolManagementSystem {
     }
 
     /**
-     * adds a new department if there are less than 5 existing departments
+     * adds a new department
+     * if there are less than 5 existing departments
      * else it will fail to add a department
      * @param departmentName String of department name
      */
@@ -110,8 +110,7 @@ public class SchoolManagementSystem {
     public void printDepartment() {
         for (Department department: departments) {
             if (department != null) {
-                System.out.println(department);     //double check output and modify if needed (ex. if courses not being
-                                                    // printed how expected
+                System.out.println(department);
             }
         }
     }
@@ -124,8 +123,7 @@ public class SchoolManagementSystem {
     public void printStudent() {
         for (Student student : students) {
             if (student != null) {
-                System.out.println(student);         //double check output and modify if needed (ex. if courses not being
-                                                    // printed how expected
+                System.out.println(student);
             }
         }
     }
@@ -138,8 +136,7 @@ public class SchoolManagementSystem {
     public void printTeacher() {
         for (Teacher teacher : teachers) {
             if (teacher != null) {
-                System.out.println(teacher);         //double check output and modify if needed (ex. if courses not being
-                                                     // printed how expected
+                System.out.println(teacher);
             }
         }
     }
@@ -152,8 +149,7 @@ public class SchoolManagementSystem {
     public void printCourse() {
         for (Course course : courses) {
             if (course != null) {
-                System.out.println(course);          //double check output and modify if needed (ex. if courses not being
-                                                     // printed how expected
+                System.out.println(course);
             }
         }
     }
@@ -192,7 +188,7 @@ public class SchoolManagementSystem {
      * finds a course in the course based on the course id
      * if the teacher id does not match with anything in the courses, will return a null
      * @param courseId String of courseId
-     * @return the Course course that was being searched
+     * @return the course from the course that was being searched
      */
     public Course findCourse(String courseId) {
         for (Course course : courses) {
@@ -205,7 +201,7 @@ public class SchoolManagementSystem {
 
     /**
      * finds a student in the students based on the student id
-     * if the studentid is found in students then it will return the student with data type Student
+     * if the student id is found in students then it will return the student with data type Student
      * @param studentId String of studentId
      * @return null if studentId not found
      */
@@ -219,7 +215,7 @@ public class SchoolManagementSystem {
     }
 
     /**
-     * assigns a teached to a specific course based on parameters
+     * assigns a teacher to a specific course based on parameters
      * if no teacher or course is found, a message will be printed
      * @param teacherId String of teacherId
      * @param courseId String of courseId
@@ -234,12 +230,12 @@ public class SchoolManagementSystem {
                     return;
                 }
                 System.out.printf("Cannot find any teacher that matches the teacher id %s, modification for teacher " +
-                                  "%s failed", teacherId, teacherId);
+                            "%s failed", teacherId, teacherId);
                 return;
             }
         }
         System.out.printf("Cannot find any course that matches the course id %s, modification for course " +
-                "%s failed", courseId, courseId);
+                    "%s failed", courseId, courseId);
     }
 
     /**
@@ -253,34 +249,25 @@ public class SchoolManagementSystem {
      * @param courseId string of courseId
      */
     public void registerCourse(String studentId, String courseId) {
-        Course courseFound = findCourse(courseId);
-        Student studentFound = findStudent(studentId);
-
-        for (; courseNum < MAX_COURSE_NUM; courseNum++) {
-            if (courseFound != null && studentFound != null) {
-                break;
+        Student student = findStudent(studentId);
+        Course course = findCourse(courseId);
+        if (course != null && student != null) {
+            if (!student.getStudentId().equals(studentId)) {
+                System.out.printf("Cannot find any student that matches the student id %s register course for student " +
+                        "%s failed", studentId, studentId);
+            } else if (!course.getCourseId().equals(courseId)) {
+                System.out.printf("Cannot find any course that matches the course id %s register course for student " +
+                        "%s failed", courseId, courseId);
+            } else if (student.getCourseNum() >= Student.MAX_COURSE_NUM) {
+                System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed",
+                        studentId, studentId);
+            } else if (course.getStudentNum() >= Course.MAX_STUDENT_NUM) {
+                System.out.printf("Course %s has been fully registered, register course %s for student %s failed",
+                        courseId, courseId, studentId);
             }
+            course.registerStudent(student);
+            student.registerCourse(course);
+            System.out.printf("Latest student info: %s\nLatest course info: %s", student, course);
         }
-            if (studentFound == null || !studentFound.getStudentId().equals(studentId)) {
-                System.out.printf("Cannot find any student that matches the student id %s, register course for student %s failed", studentId, studentId);
-                return;
-            }
-            else if (courseFound == null || !courseFound.getCourseId().equals(courseId)) {
-                System.out.printf("Cannot find any course that matches with the course id %s, register course for student %s failed", courseId, studentId);
-                return;
-            }
-            else if (students[studentNum].getCourseNum() >= MAX_COURSE_NUM) {
-                System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed", studentId, studentId);
-                return;
-            }
-            else if (courses[courseNum].getStudentNum() >= MAX_STUDENT_NUM) {
-                System.out.printf("Courses %s has been fully registered, register course %s for student %s failed", studentId, courseId, studentId);
-                return;
-            }
-            Student student = new Student(studentFound.getFname(), studentFound.getLname(), studentFound.getDepartment());
-            Course course = new Course(courseFound.getCourseName(), courseFound.getCredit(), courseFound.getDepartment());
-
-            System.out.printf("Latest student info: %s \nLatest course info: %s", student, course);
-
     }
 }
