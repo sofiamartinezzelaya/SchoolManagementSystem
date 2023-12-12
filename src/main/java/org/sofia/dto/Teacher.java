@@ -1,5 +1,11 @@
 package org.sofia.dto;
 
+/**
+ * Teacher
+ *
+ * @author Sofia Martinez
+ */
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
