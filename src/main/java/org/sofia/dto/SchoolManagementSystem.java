@@ -230,12 +230,12 @@ public class SchoolManagementSystem {
                     return;
                 }
                 System.out.printf("Cannot find any teacher that matches the teacher id %s, modification for teacher " +
-                            "%s failed", teacherId, teacherId);
+                            "%s failed\n", teacherId, teacherId);
                 return;
             }
         }
         System.out.printf("Cannot find any course that matches the course id %s, modification for course " +
-                    "%s failed", courseId, courseId);
+                    "%s failed\n", courseId, courseId);
     }
 
     /**
@@ -254,12 +254,12 @@ public class SchoolManagementSystem {
         if (course != null && student != null) {
             if (!student.getStudentId().equals(studentId)) {
                 System.out.printf("Cannot find any student that matches the student id %s register course for student " +
-                        "%s failed", studentId, studentId);
+                        "%s failed\n", studentId, studentId);
             } else if (!course.getCourseId().equals(courseId)) {
                 System.out.printf("Cannot find any course that matches the course id %s register course for student " +
-                        "%s failed", courseId, courseId);
+                        "%s failed\n", courseId, courseId);
             } else if (student.getCourseNum() >= Student.MAX_COURSE_NUM) {
-                System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed",
+                System.out.printf("Student %s has already registered for 5 courses, register course for student %s failed\n",
                         studentId, studentId);
             } else if (course.getStudentNum() >= Course.MAX_STUDENT_NUM) {
                 System.out.printf("Course %s has been fully registered, register course %s for student %s failed",

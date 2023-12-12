@@ -17,19 +17,25 @@ public class Main {
         schoolManagementSystem.addStudent("Elena", "Dobrev", "D001");
         schoolManagementSystem.addStudent("Stefan", "Walker", "D001");
         schoolManagementSystem.addStudent("Ian", "Somerholder", "D002");
+        schoolManagementSystem.addStudent("Ian", "Somerholder", "D004");
         // add new student until max student is reached and eventually will fail to add student
 
         schoolManagementSystem.printStudent();
 
         schoolManagementSystem.addTeacher("Yi", "Wang", "D001");
         schoolManagementSystem.addTeacher("Shawna", "Lambert", "D004");
-        schoolManagementSystem.printTeacher();
         // add new teacher until max teacher is reached and eventually will fail to add teacher
 
+        schoolManagementSystem.printTeacher();
+
         schoolManagementSystem.addCourse("Introduction to Programming", 3.0, "D005");
+
         schoolManagementSystem.printCourse();
 
         schoolManagementSystem.modifyCourseTeacher("T001", "C001");
+        schoolManagementSystem.modifyCourseTeacher("T001", "C007");
+
         schoolManagementSystem.registerCourse("S001", "C001");
+        schoolManagementSystem.registerCourse("S010", "C002");
     }
 }

@@ -53,7 +53,6 @@ public class Course {
             }
         }
         studentStr += "]";
-
         return "Course {id= '" + courseId + "', courseName= '" + courseName + "', credit= " + credit + ", teacher= " +
                 teacher.getName() + ", department= " + department.getDepartmentName() + ", students= " + studentStr + "}";
     }
